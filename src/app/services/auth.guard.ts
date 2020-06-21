@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.auth.bruker$.pipe(
       take(1),
-      map(user => !!user), // <-- map to boolean
+      map(bruker => !!bruker),
       tap(loggedIn => {
         if (!loggedIn) {
           console.log('ingen tilgang')

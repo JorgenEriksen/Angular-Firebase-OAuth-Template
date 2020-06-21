@@ -3,9 +3,9 @@
 <nav>
 <a routerLink="/secret">secret</a>
 </nav>
-
 <hr>
 
+<!-- Hvis brukeren er innlogget-->
 <div *ngIf="auth.bruker$ | async as user; else logginn">
   {{ user | json }}
   <hr>
@@ -13,9 +13,9 @@
   <button (click)="auth.loggUt()">Logg ut</button>
 </div>
 
+<!-- Hvis brukeren ikke er innlogget-->
 <ng-template #logginn>
   <button (click)="auth.googleLoggInn()">Logg inn med Google</button>
-
 </ng-template>
 
 <router-outlet></router-outlet>
